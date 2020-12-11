@@ -8,6 +8,6 @@ module.exports = {
         this.app = app;
         this._super.included(app);
 
-        app.import(app.bowerDirectory + '/jquery.sparkline.dist/dist/jquery.sparkline.js');
+        app.import('node_modules/jquery.sparkline/dist/jquery.sparkline.js');
     }
 };
