@@ -21,10 +21,10 @@ export default Ember.Component.extend({
 
         sparkline = this.$().sparkline(data, options);
 
-        this.$().bind('sparklineClick', (ev) => {
+        this.$().bind('sparklineClick', function(ev){
             _this.set('sparklineClickedElement', ev.sparklines[0]);
         });
-        this.$().bind('sparklineRegionChange', (ev) => {
+        this.$().bind('sparklineRegionChange', function(ev){
             _this.set('sparklineRegionChange', ev.sparklines[0]);
         });
 
