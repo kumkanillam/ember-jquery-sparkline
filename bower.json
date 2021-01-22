@@ -1,7 +1,6 @@
 {
     "name": "ember-jquery-sparkline",
     "dependencies": {
-        "jquery": "^1.11.1",
-        "jquery.sparkline.dist": "2.1.3"
+        "jquery": "^1.11.1"
     }
 }
