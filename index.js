@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-    name: 'ember-jquery-sparkline',
+  name: require('./package').name,
 
     included: function(app) {
         this.app = app;

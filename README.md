@@ -9,7 +9,9 @@ This README outlines the details of collaborating on this Ember addon.
 * `npm install`
   `bower install`
 
-## Running
+* Ember.js v3.24 or above
+* Ember CLI v3.24 or above
+* Node.js v12 or above
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
