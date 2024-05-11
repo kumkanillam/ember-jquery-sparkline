@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/spark-line';
+import { addObserver } from '@ember/object/observers';
+import { on } from '@ember/object/evented';
+import { isPresent } from '@ember/utils';
 
-const { on,isPresent } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
     layout: layout,
     tagName: 'div',
 
@@ -12,6 +13,10 @@ export default Ember.Component.extend({
     didInsertElement() {
         this.drawSparkline();
     },
+    init() {
+        this._super(...arguments);
+        addObserver(this, 'data.length','data.[]', this.listenDataChanges);
+    },
 
     drawSparkline() {
         let sparkline,
@@ -19,12 +24,12 @@ export default Ember.Component.extend({
         options = this.get('options') || {},
         data = this.get('data');
 
-        sparkline = this.$().sparkline(data, options);
+        sparkline = $(this.element).sparkline(data, options);
 
-        this.$().bind('sparklineClick', function(ev){
+        $(this.element).on('sparklineClick', function(ev){
             _this.set('sparklineClickedElement', ev.sparklines[0]);
         });
-        this.$().bind('sparklineRegionChange', function(ev){
+        $(this.element).on('sparklineRegionChange', function(ev){
             _this.set('sparklineRegionChange', ev.sparklines[0]);
         });
 
@@ -52,11 +57,9 @@ export default Ember.Component.extend({
             this.sparklineHoverOut();
         }
     },
-
-    listenDataChanges: function () {
+    listenDataChanges() {
         this.drawSparkline();
-    }.observes('data.length','data.[]'),
-
+    },
     destroySparkline: on('willDestroyElement', function() {
         this.destroy();
     }),

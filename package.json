@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "^7.26.10",
-    "ember-cli-htmlbars": "~5.7.2",
+    "ember-cli-htmlbars": "^6.0.1",
     "jquery.sparkline": "git+https://github.com/kumkanillam/jquery.sparkline.git"
   },
   "devDependencies": {
@@ -33,8 +33,7 @@
     "ember-cli": "~3.28.5",
     "ember-cli-dependency-checker": "^1.3.0",
     "ember-cli-eslint": "^3.0.0",
-    "ember-cli-htmlbars": "~5.3.1",
-    "ember-cli-htmlbars-inline-precompile": "^0.4.0",
+    "ember-cli-htmlbars": "^6.0.1",
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-shims": "^1.1.0",
