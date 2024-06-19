@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/spark-line';
-import { addObserver } from '@ember/object/observers';
+import { addObserver, removeObserver } from '@ember/object/observers';
 import { on } from '@ember/object/evented';
 import { isPresent } from '@ember/utils';
 
@@ -62,6 +62,8 @@ export default Component.extend({
         this.drawSparkline();
     },
     destroySparkline: on('willDestroyElement', function() {
+        removeObserver(this, 'data.length',this, "listenDataChanges");
+        removeObserver(this, 'data.[]', this, "listenDataChanges");
         this.destroy();
     }),
 });
