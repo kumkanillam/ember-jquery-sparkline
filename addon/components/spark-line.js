@@ -59,6 +59,9 @@ export default Component.extend({
         }
     },
     listenDataChanges() {
+        if(this.isDestroying || this.isDestroyed) {
+            return;
+        }
         this.drawSparkline();
     },
     destroySparkline: on('willDestroyElement', function() {
