@@ -15,7 +15,8 @@ export default Component.extend({
     },
     init() {
         this._super(...arguments);
-        addObserver(this, 'data.length','data.[]', this.listenDataChanges);
+        addObserver(this, 'data.length',this, "listenDataChanges");
+        addObserver(this, 'data.[]', this, "listenDataChanges");
     },
 
     drawSparkline() {
